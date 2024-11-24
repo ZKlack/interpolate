@@ -22,4 +22,17 @@ namespace ZK {
 		}
 		return result;
 	}
+	polynomial polynomial::operator()(const polynomial& x) const {
+		polynomial result;
+		real result = 0;
+		for (num i = 0; i < _terms.size(); ++i)
+		{
+			polynomial term = { 1 };
+			for (num j = 0; j < i; ++j)
+				term *= x;
+			term *= _terms[i];
+			result += term;
+		}
+		return result;
+	}
 }
