@@ -66,4 +66,9 @@ namespace ZK {
 		result[0] += x;
 		return result;
 	}
+	polynomial polynomial::operator-(const real x) const {
+		polynomial result(*this);
+		result[0] -= x;
+		return result;
+	}
 }
