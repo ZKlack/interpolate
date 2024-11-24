@@ -15,7 +15,7 @@ namespace ZK {
 		polynomial(const std::initializer_list<real>&);
 		polynomial(const polynomial&);
 
-		real operator()(const real&) const;
+		real operator()(const real) const;
 		polynomial operator()(const polynomial&) const;
 
 		polynomial operator+(const polynomial&) const;
@@ -25,20 +25,20 @@ namespace ZK {
 		polynomial operator-=(const polynomial&);
 		polynomial operator*=(const polynomial&);
 
-		real operator+(real) const;
-		real operator-(real) const;
-		real operator*(real) const;
-		real operator/(real) const;
-		real operator+=(real);
-		real operator-=(real);
-		real operator*=(real);
-		real operator/=(real);
+		real operator+(const real) const;
+		real operator-(const real) const;
+		real operator*(const real) const;
+		real operator/(const real) const;
+		real operator+=(const real);
+		real operator-=(const real);
+		real operator*=(const real);
+		real operator/=(const real);
 
 		bool operator==(const polynomial&) const;
 		bool operator!=(const polynomial&) const;
 
-		real& operator[](num);
-		const real& operator[](num) const;
+		real& operator[](const num);
+		const real& operator[](const num) const;
 		num size() const;
 
 		explicit operator std::string() const;
