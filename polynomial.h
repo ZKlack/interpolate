@@ -21,18 +21,18 @@ namespace ZK {
 		polynomial operator+(const polynomial&) const;
 		polynomial operator-(const polynomial&) const;
 		polynomial operator*(const polynomial&) const;
-		polynomial operator+=(const polynomial&);
-		polynomial operator-=(const polynomial&);
-		polynomial operator*=(const polynomial&);
+		polynomial& operator+=(const polynomial&);
+		polynomial& operator-=(const polynomial&);
+		polynomial& operator*=(const polynomial&);
 
-		real operator+(const real) const;
-		real operator-(const real) const;
-		real operator*(const real) const;
-		real operator/(const real) const;
-		real operator+=(const real);
-		real operator-=(const real);
-		real operator*=(const real);
-		real operator/=(const real);
+		polynomial operator+(const real) const;
+		polynomial operator-(const real) const;
+		polynomial operator*(const real) const;
+		polynomial operator/(const real) const;
+		polynomial& operator+=(const real);
+		polynomial& operator-=(const real);
+		polynomial& operator*=(const real);
+		polynomial& operator/=(const real);
 
 		bool operator==(const polynomial&) const;
 		bool operator!=(const polynomial&) const;
