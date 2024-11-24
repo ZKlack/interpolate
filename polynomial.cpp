@@ -71,4 +71,10 @@ namespace ZK {
 		result[0] -= x;
 		return result;
 	}
+	polynomial polynomial::operator*(const real x) const {
+		polynomial result(*this);
+		for (num i = 0; i < size(); ++i)
+			result[i] *= x;
+		return result;
+	}
 }
