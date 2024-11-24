@@ -35,4 +35,13 @@ namespace ZK {
 		}
 		return result;
 	}
+
+	polynomial polynomial::operator+(const polynomial& other) const {
+		polynomial result(*this);
+		if (result.size() < other.size())
+			result._terms.resize(other.size(), 0);
+		for (num i = 0; i < other.size(); ++i)
+			result[i] += other[i];
+		return result;
+	}
 }
