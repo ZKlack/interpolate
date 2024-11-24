@@ -1,4 +1,5 @@
 #include "polynomial.h"
+#include <stdexcept>
 
 namespace ZK {
 	polynomial::polynomial()
@@ -77,6 +78,8 @@ namespace ZK {
 		return result;
 	}
 	polynomial polynomial::operator/(const real x) const {
+		if (x == 0)
+			throw std::invalid_argument("Division by zero is undefined.");
 		polynomial result(*this);
 		for (num i = 0; i < size(); ++i)
 			result[i] /= x;
