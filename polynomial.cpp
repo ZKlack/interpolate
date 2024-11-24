@@ -60,4 +60,10 @@ namespace ZK {
 				result[i + j] += _terms[i] * other[j];
 		return result;
 	}
+
+	polynomial polynomial::operator+(const real x) const {
+		polynomial result(*this);
+		result[0] += x;
+		return result;
+	}
 }
