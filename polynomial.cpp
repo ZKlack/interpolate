@@ -24,7 +24,6 @@ namespace ZK {
 	}
 	polynomial polynomial::operator()(const polynomial& x) const {
 		polynomial result;
-		real result = 0;
 		for (num i = 0; i < _terms.size(); ++i)
 		{
 			polynomial term = { 1 };
