@@ -52,4 +52,12 @@ namespace ZK {
 			result[i] -= other[i];
 		return result;
 	}
+	polynomial polynomial::operator*(const polynomial& other) const {
+		polynomial result;
+		result._terms.resize(size() + other.size() - 1, 0);
+		for (num i = 0; i < size(); ++i)
+			for (num j = 0; j < other.size(); ++j)
+				result[i + j] += _terms[i] * other[j];
+		return result;
+	}
 }
