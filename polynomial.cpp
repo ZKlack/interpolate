@@ -4,6 +4,8 @@
 namespace ZK {
 	polynomial::polynomial()
 		:_terms(1,0) { }
+	polynomial::polynomial(const real x)
+		:_terms(1,x) { }
 	polynomial::polynomial(const std::vector<real>& terms)
 		:_terms(terms) {
 		if (_terms.size() == 0)

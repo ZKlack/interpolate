@@ -11,6 +11,7 @@ namespace ZK {
 		std::vector<real> _terms;
 	public:
 		polynomial();
+		polynomial(const real);
 		polynomial(const std::vector<real>&);
 		polynomial(const std::initializer_list<real>&);
 		polynomial(const polynomial&);
