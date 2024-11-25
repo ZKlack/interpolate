@@ -125,4 +125,8 @@ namespace ZK {
 			throw std::invalid_argument("index out of bound.");
 		return _terms[index];
 	}
+
+	num polynomial::size() const {
+		return _terms.size();
+	}
 }
