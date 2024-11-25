@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="interpolation.h" />
     <ClInclude Include="polynomial.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="interpolation.cpp" />
     <ClCompile Include="polynomial.cpp" />
     <ClCompile Include="test_polynomial.cpp" />
   </ItemGroup>
