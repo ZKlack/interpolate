@@ -53,6 +53,7 @@ namespace ZK {
 			result._terms.resize(other.size(), 0);
 		for (num i = 0; i < other.size(); ++i)
 			result[i] += other[i];
+		result.trim();
 		return result;
 	}
 	polynomial polynomial::operator-(const polynomial& other) const {
@@ -61,6 +62,7 @@ namespace ZK {
 			result._terms.resize(other.size(), 0);
 		for (num i = 0; i < other.size(); ++i)
 			result[i] -= other[i];
+		result.trim();
 		return result;
 	}
 	polynomial polynomial::operator*(const polynomial& other) const {
@@ -69,23 +71,27 @@ namespace ZK {
 		for (num i = 0; i < size(); ++i)
 			for (num j = 0; j < other.size(); ++j)
 				result[i + j] += _terms[i] * other[j];
+		result.trim();
 		return result;
 	}
 
 	polynomial polynomial::operator+(const real x) const {
 		polynomial result(*this);
 		result[0] += x;
+		result.trim();
 		return result;
 	}
 	polynomial polynomial::operator-(const real x) const {
 		polynomial result(*this);
 		result[0] -= x;
+		result.trim();
 		return result;
 	}
 	polynomial polynomial::operator*(const real x) const {
 		polynomial result(*this);
 		for (num i = 0; i < size(); ++i)
 			result[i] *= x;
+		result.trim();
 		return result;
 	}
 	polynomial polynomial::operator/(const real x) const {
@@ -94,6 +100,7 @@ namespace ZK {
 		polynomial result(*this);
 		for (num i = 0; i < size(); ++i)
 			result[i] /= x;
+		result.trim();
 		return result;
 	}
 
@@ -143,37 +150,44 @@ namespace ZK {
 
 	polynomial& polynomial::operator+=(const polynomial& other) {
 		polynomial temp = *this + other;
+		temp.trim();
 		*this = temp;
 		return *this;
 	}
 	polynomial& polynomial::operator-=(const polynomial& other) {
 		polynomial temp = *this - other;
 		*this = temp;
+		temp.trim();
 		return *this;
 	}
 	polynomial& polynomial::operator*=(const polynomial& other) {
 		polynomial temp = *this * other;
 		*this = temp;
+		temp.trim();
 		return *this;
 	}
 	polynomial& polynomial::operator+=(const real x) {
 		polynomial temp = *this + x;
 		*this = temp;
+		temp.trim();
 		return *this;
 	}
 	polynomial& polynomial::operator-=(const real x) {
 		polynomial temp = *this - x;
 		*this = temp;
+		temp.trim();
 		return *this;
 	}
 	polynomial& polynomial::operator*=(const real x) {
 		polynomial temp = *this * x;
 		*this = temp;
+		temp.trim();
 		return *this;
 	}
 	polynomial& polynomial::operator/=(const real x) {
 		polynomial temp = *this / x;
 		*this = temp;
+		temp.trim();
 		return *this;
 	}
 
