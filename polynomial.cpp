@@ -150,44 +150,37 @@ namespace ZK {
 
 	polynomial& polynomial::operator+=(const polynomial& other) {
 		polynomial temp = *this + other;
-		temp.trim();
 		*this = temp;
 		return *this;
 	}
 	polynomial& polynomial::operator-=(const polynomial& other) {
 		polynomial temp = *this - other;
 		*this = temp;
-		temp.trim();
 		return *this;
 	}
 	polynomial& polynomial::operator*=(const polynomial& other) {
 		polynomial temp = *this * other;
 		*this = temp;
-		temp.trim();
 		return *this;
 	}
 	polynomial& polynomial::operator+=(const real x) {
 		polynomial temp = *this + x;
 		*this = temp;
-		temp.trim();
 		return *this;
 	}
 	polynomial& polynomial::operator-=(const real x) {
 		polynomial temp = *this - x;
 		*this = temp;
-		temp.trim();
 		return *this;
 	}
 	polynomial& polynomial::operator*=(const real x) {
 		polynomial temp = *this * x;
 		*this = temp;
-		temp.trim();
 		return *this;
 	}
 	polynomial& polynomial::operator/=(const real x) {
 		polynomial temp = *this / x;
 		*this = temp;
-		temp.trim();
 		return *this;
 	}
 
