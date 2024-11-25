@@ -85,4 +85,33 @@ namespace ZK {
 			result[i] /= x;
 		return result;
 	}
+
+	bool polynomial::operator==(const polynomial& other) const {
+		if (size() != other.size())
+		{
+			const polynomial& a = (size() < other.size() ? other : *this);
+			const polynomial& b = (size() < other.size() ? *this : other);
+			for (num i = b.size(); i < a.size(); ++i)
+				if (a[i] != 0)
+					return false;
+		}
+		for (num i = 0; i < size(); ++i)
+			if ((*this)[i] != other[i])
+				return false;
+		return true;
+	}
+	bool polynomial::operator!=(const polynomial& other) const {
+		if (size() != other.size())
+		{
+			const polynomial& a = (size() < other.size() ? other : *this);
+			const polynomial& b = (size() < other.size() ? *this : other);
+			for (num i = b.size(); i < a.size(); ++i)
+				if (a[i] != 0)
+					return true;
+		}
+		for (num i = 0; i < size(); ++i)
+			if ((*this)[i] != other[i])
+				return true;
+		return false;
+	}
 }
