@@ -3,13 +3,22 @@
 
 namespace ZK {
 	polynomial::polynomial()
-		:_terms() { }
+		:_terms(1,0) { }
 	polynomial::polynomial(const std::vector<real>& terms)
-		:_terms(terms) { }
+		:_terms(terms) {
+		if (_terms.size() == 0)
+			_terms.resize(1, 0);
+	}
 	polynomial::polynomial(const std::initializer_list<real>& terms)
-		:_terms(terms) { }
+		:_terms(terms) {
+		if (_terms.size() == 0)
+			_terms.resize(1, 0);
+	}
 	polynomial::polynomial(const polynomial& other)
-		:_terms(other._terms) { }
+		:_terms(other._terms) {
+		if (_terms.size() == 0)
+			_terms.resize(1, 0);
+	}
 
 	real polynomial::operator()(const real x) const {
 		real result = 0;
