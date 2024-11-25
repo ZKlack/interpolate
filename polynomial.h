@@ -43,7 +43,7 @@ namespace ZK {
 		const real& operator[](const num) const;
 		num size() const;
 
-		explicit operator std::string() const;
+		operator std::string() const;
 		friend std::ostream& operator<<(std::ostream&, const polynomial&);
 	};
 }

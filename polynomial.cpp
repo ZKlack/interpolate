@@ -191,7 +191,7 @@ namespace ZK {
 		}
 	}
 
-	explicit polynomial::operator std::string() const {
+	polynomial::operator std::string() const {
 		std::ostringstream oss;
 		for (num i = _terms.size() - 1; i >= 0; --i) {
 			if (_terms[i] == 0)
