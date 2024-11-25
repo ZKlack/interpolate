@@ -114,4 +114,15 @@ namespace ZK {
 				return true;
 		return false;
 	}
+
+	real& polynomial::operator[](const num index) {
+		if(index>=size())
+			throw std::invalid_argument("index out of bound.");
+		return _terms[index];
+	}
+	const real& polynomial::operator[](const num index) const {
+		if (index >= size())
+			throw std::invalid_argument("index out of bound.");
+		return _terms[index];
+	}
 }
