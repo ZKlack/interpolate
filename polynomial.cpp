@@ -1,5 +1,6 @@
 #include "polynomial.h"
 #include <stdexcept>
+#include <sstream>
 
 namespace ZK {
 	polynomial::polynomial()
@@ -188,5 +189,32 @@ namespace ZK {
 		while (_terms.size() > 1 && _terms.back() == 0) {
 			_terms.pop_back();
 		}
+	}
+
+	explicit polynomial::operator std::string() const {
+		std::ostringstream oss;
+		for (num i = _terms.size() - 1; i >= 0; --i) {
+			if (_terms[i] == 0)
+				continue;
+			if (oss.tellp() > 0) {
+				oss << (_terms[i] >= 0 ? " + " : " - ");
+			}
+			else if (_terms[i] < 0) {
+				oss << "-";
+			}
+			if (std::abs(_terms[i]) != 1 || i == 0) {
+				oss << std::abs(_terms[i]);
+			}
+			if (i == 0)
+				continue;
+			oss << "x";
+			if (i > 1) {
+				oss << "^" << i;
+			}
+		}
+		if (oss.str().empty()) {
+			oss << "0";
+		}
+		return oss.str();
 	}
 }
