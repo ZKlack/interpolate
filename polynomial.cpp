@@ -129,4 +129,40 @@ namespace ZK {
 	num polynomial::size() const {
 		return _terms.size();
 	}
+
+	polynomial& polynomial::operator+=(const polynomial& other) {
+		polynomial temp = *this + other;
+		*this = temp;
+		return *this;
+	}
+	polynomial& polynomial::operator-=(const polynomial& other) {
+		polynomial temp = *this - other;
+		*this = temp;
+		return *this;
+	}
+	polynomial& polynomial::operator*=(const polynomial& other) {
+		polynomial temp = *this * other;
+		*this = temp;
+		return *this;
+	}
+	polynomial& polynomial::operator+=(const real x) {
+		polynomial temp = *this + x;
+		*this = temp;
+		return *this;
+	}
+	polynomial& polynomial::operator-=(const real x) {
+		polynomial temp = *this - x;
+		*this = temp;
+		return *this;
+	}
+	polynomial& polynomial::operator*=(const real x) {
+		polynomial temp = *this * x;
+		*this = temp;
+		return *this;
+	}
+	polynomial& polynomial::operator/=(const real x) {
+		polynomial temp = *this / x;
+		*this = temp;
+		return *this;
+	}
 }
