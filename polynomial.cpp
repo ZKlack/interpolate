@@ -176,4 +176,10 @@ namespace ZK {
 		*this = temp;
 		return *this;
 	}
+
+	void polynomial::trim() {
+		while (_terms.size() > 1 && _terms.back() == 0) {
+			_terms.pop_back();
+		}
+	}
 }

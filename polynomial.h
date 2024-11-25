@@ -9,6 +9,7 @@ namespace ZK {
 	{
 	private:
 		std::vector<real> _terms;
+		void trim();
 	public:
 		polynomial();
 		polynomial(const real);
