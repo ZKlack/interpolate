@@ -217,4 +217,8 @@ namespace ZK {
 		}
 		return oss.str();
 	}
+	std::ostream& ZK::operator<<(std::ostream& os, const polynomial& poly) {
+		os << static_cast<std::string>(poly);
+		return os;
+	}
 }
