@@ -23,4 +23,11 @@ namespace ZK {
 	polynomial interpolation::operator()(const polynomial& x) const {
 		return _func(x);
 	}
+
+	std::optional<real> interpolation::get(const real x) const {
+		auto point = _points.find(x);
+		if (point == _points.end())
+			return std::nullopt;
+		return point->second;
+	}
 }
