@@ -1,6 +1,7 @@
 #pragma once
 #include"polynomial.h"
 #include<map>
+#include<optional>
 namespace ZK {
 	class interpolation
 	{
@@ -18,7 +19,7 @@ namespace ZK {
 		real operator()(const real) const;
 		polynomial operator()(const polynomial&) const;
 
-		real get(const real) const;
+		std::optional<real> get(const real) const;
 		real set(const real, const real);
 		real set(const std::pair<real, real>&);
 		void set(const std::map<real, real>&);
