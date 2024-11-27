@@ -4,7 +4,7 @@ namespace ZK {
 	interpolation::interpolation(polynomial(*interpolator)(const std::vector<std::pair<real, real> >&))
 		: _interpolator(interpolator)
 		, _points()
-		, _func(_interpolator(std::vector<std::pair<real,real> >()))
+		, _func(_interpolator({})
 	{ }
 	interpolation::interpolation(polynomial(*interpolator)(const std::vector<std::pair<real, real> >&), const std::map<real, real>& points)
 		: _interpolator(interpolator)
