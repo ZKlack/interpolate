@@ -30,4 +30,31 @@ namespace ZK {
 			return std::nullopt;
 		return point->second;
 	}
+
+	real interpolation::set(const real x, const real y) {
+		_points[x] = y;
+		recompute();
+		return _points[x];
+	}
+	real interpolation::set(const std::pair<real, real>& point) {
+		_points[point.first] = point.second;
+		recompute();
+		return _points[point.first];
+	}
+	void interpolation::set(const std::map<real, real>& points) {
+		for (auto point = points.begin(); point != points.end(); ++point)
+			_points[point->first] = point->second;
+		recompute();
+	}
+	bool interpolation::remove(const real x) {
+		bool exists = _points.contains(x);
+		_points.erase(x);
+		recompute();
+		return exists;
+	}
+	void interpolation::clear()
+	{
+		_points.clear();
+		recompute();
+	}
 }
