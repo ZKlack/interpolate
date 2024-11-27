@@ -67,4 +67,11 @@ namespace ZK {
 	num interpolation::degree() const {
 		return _func.size();
 	}
+
+	std::vector<std::pair<real, real> > interpolation::rewrap(const std::map<real, real>& points) const {
+		return { _points.begin(),_points.end() };
+	}
+	void interpolation::recompute() {
+		_func = _interpolator(rewrap(_points));
+	}
 }
