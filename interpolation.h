@@ -9,6 +9,7 @@ namespace ZK {
 		std::map<real,real> _points;
 		polynomial _func;
 		void recompute();
+		std::vector<std::pair<real, real> > rewrap(const std::map<real, real>& points);
 	public:
 		interpolation(polynomial(*)(const std::vector<std::pair<real, real> >&));
 		interpolation(polynomial(*)(const std::vector<std::pair<real, real> >&), const std::map<real, real>&);
