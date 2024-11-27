@@ -16,4 +16,11 @@ namespace ZK {
 		, _points(other._points)
 		, _func(other._func)
 	{ }
+
+	real interpolation::operator()(const real x) const {
+		return _func(x);
+	}
+	polynomial interpolation::operator()(const polynomial& x) const {
+		return _func(x);
+	}
 }
