@@ -1,4 +1,4 @@
-#pragma once
+#include"methods.h"
 #include"polynomial.h"
 #include<vector>
 #include<stdexcept>

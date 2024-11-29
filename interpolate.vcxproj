@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="interpolation.h" />
+    <ClInclude Include="methods.h" />
     <ClInclude Include="polynomial.h" />
   </ItemGroup>
   <ItemGroup>
