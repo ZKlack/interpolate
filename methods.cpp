@@ -93,5 +93,28 @@ namespace ZK::methods {
 			}
 			return result;
 		}
+
+		polynomial lagranges(const std::vector<std::pair<real, real> >& points) {
+			if (points.size() == 0)
+				return 0;
+			if (points.size() == 1)
+				return points[0].second;
+			
+			num sample = points.size();
+			polynomial result = 0;
+			for (num n = 0; n < sample; ++n)
+			{
+				polynomial term = points[n].second;
+				for (num i = 0; i < sample; ++i)
+				{
+					if (i == n)
+						continue;
+					term *= {-points[i].first, 1};
+					term /= points[n].first - points[i].first;
+				}
+				result += term;
+			}
+			return result;
+		}
 	}
 }
