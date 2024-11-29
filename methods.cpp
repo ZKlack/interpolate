@@ -1,7 +1,7 @@
 #pragma once
 #include"polynomial.h"
 #include<vector>
-#include <stdexcept>
+#include<stdexcept>
 
 namespace ZK::methods {
 	namespace interpolation {
