@@ -1,4 +1,5 @@
 #pragma once
+#include"polynomial.h"
 
 namespace ZK::methods {
 	namespace interpolation {

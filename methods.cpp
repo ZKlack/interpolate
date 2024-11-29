@@ -1,6 +1,4 @@
 #include"methods.h"
-#include"polynomial.h"
-#include<vector>
 #include<stdexcept>
 
 namespace ZK::methods {
