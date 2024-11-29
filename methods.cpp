@@ -15,7 +15,7 @@ namespace ZK::methods {
 			num sample = points.size();
 			real h = points[1].first - points[0].first;
 			for(num i=2;i<sample;++i)
-				if(points[i].first-points[i-1].first!=sample)
+				if(points[i].first-points[i-1].first!=h)
 					throw std::invalid_argument("unequal intervals.");
 
 			std::vector<std::vector<real> > table(sample, std::vector<real>(sample, 0));
@@ -32,7 +32,7 @@ namespace ZK::methods {
 			{
 				polynomial term = table[n][0];
 				for (num i = 0; i < n; ++i)
-					term *= (u - i) / n - i;
+					term *= (u - i) / (n - i);
 				result += term;
 			}
 			return result;
