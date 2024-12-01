@@ -8,7 +8,8 @@ int api_mode(string, bool, const vector<pair<long double, long double> >&);
 
 enum ERRORCODE {
 	UNKOWN_METHOD = 100,
-	NUMBER_TOO_LARGE
+	NUMBER_TOO_LARGE,
+	UNEMPLEMENTED_FEATURE
 };
 
 int main(int argc, char* argv[])
@@ -52,10 +53,20 @@ int main(int argc, char* argv[])
 
 int ui_mode()
 {
-
+	return ERRORCODE::UNEMPLEMENTED_FEATURE;
 }
 
 int api_mode(string method, bool human, const vector<pair<long double, long double> >& points)
 {
-
+	ZK::interpolation F(ZK::methods::interpolation::methods.find(method)->second, map<long double, long double>(points.begin(), points.end()));
+	ZK::polynomial result = { 0,1 };
+	result = F(result);
+	if (human)
+	{
+		cout << result << '\n';
+		return 0;
+	}
+	for (long long i = 0; i < result.size(); ++i)
+		cout << result[i] << ' ';
+	return 0;
 }
