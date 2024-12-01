@@ -29,13 +29,13 @@
     <ClCompile Include="polynomial.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="test_polynomial.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="interpolation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="methods.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

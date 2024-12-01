@@ -25,9 +25,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="interpolation.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="methods.cpp" />
     <ClCompile Include="polynomial.cpp" />
-    <ClCompile Include="test_polynomial.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
