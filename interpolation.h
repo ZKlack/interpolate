@@ -12,8 +12,8 @@ namespace ZK {
 		void recompute();
 		std::vector<std::pair<real, real> > rewrap(const std::map<real, real>&) const;
 	public:
-		interpolation(polynomial(*)(const std::vector<std::pair<real, real> >&));
-		interpolation(polynomial(*)(const std::vector<std::pair<real, real> >&), const std::map<real, real>&);
+		interpolation(polynomial(* const)(const std::vector<std::pair<real, real> >&));
+		interpolation(polynomial(* const)(const std::vector<std::pair<real, real> >&), const std::map<real, real>&);
 		interpolation(const interpolation&);
 
 		real operator()(const real) const;
