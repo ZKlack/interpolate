@@ -36,7 +36,7 @@ int main(int argc, char* argv[])
 			return 1;
 		}
 		try {
-			points.emplace_back(argv[i], argv[i + 1]);
+			points.emplace_back(stold(argv[i]), stold(argv[i + 1]));
 		}
 		catch (const invalid_argument& e) { // Catch invalid number conversion
 			cerr << "Error: invalid numeric value '" << argv[i] << "' or '" << argv[i + 1] << "'\n";
