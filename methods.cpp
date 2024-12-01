@@ -5,6 +5,13 @@ namespace ZK::methods {
 	namespace interpolation {
 		//example signature
 		//polynomial method_name(const std::vector<std::pair<real, real> >& points)
+		const std::map<std::string, polynomial(*)(const std::vector<std::pair<real, real> >&)> methods =
+		{
+					{"newtons_forward", newtons_forward},
+					{"newtons_backward", newtons_backward},
+					{"newtons_general_devided", newtons_general_devided},
+					{"lagranges", lagranges}
+		};
 
 
 		polynomial newtons_forward(const std::vector<std::pair<real, real> >& points) {
