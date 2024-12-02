@@ -57,12 +57,12 @@ int ui_mode()
 {
 	const map<string, ZK::polynomial(*)(const std::vector<std::pair<long double, long double> >&)>& methods = ZK::methods::interpolation::methods;
 	vector<pair<string, string> > commands = {
-		{"set <x> <y>","add or edit a point"},
-		{"remove <x>","remove a point"},
-		{"clear","removes all points"},
-		{"points","print all registered points"},
-		{"<method> [<x>]","interpolate using the given method {if gived an x value directly evaluates y}"},
-		{"quit","closes the program"}
+		{"set <x> <y>", "add or edit a point"},
+		{"remove <x>", "remove a point"},
+		{"clear", "removes all points"},
+		{"points", "print all registered points"},
+		{"<method> [<x>]", "interpolate using the given method {if given an x value directly evaluates y}"},
+		{"quit", "closes the program"}
 	};
 	map<long double, long double> points;
 	pair<long double, long double> point;
@@ -144,10 +144,12 @@ int ui_mode()
 			try {
 				F.set(points);
 			}
-			catch (/*I have no idea, help me mr.GPT*/) {
-				//handle this please mr.GPT
-				//btw I think the only possible error is unequal intervals for newtons forward and backward...
-				//actually I remembered that the user could cause devision by 0
+			catch (const std::invalid_argument& e) { // Catch unequal intervals or similar issues
+				cout << "Error: " << e.what() << '\n';
+				continue;
+			}
+			catch (const std::exception& e) { // Catch division by zero or other exceptions
+				cout << "Unexpected error during interpolation: " << e.what() << '\n';
 				continue;
 			}
 			if (tokens.size() < 2)
@@ -165,6 +167,7 @@ int ui_mode()
 	}
 	return ERRORCODE::UNEXPECTED;
 }
+
 
 int api_mode(string method, bool human, const vector<pair<long double, long double> >& points)
 {
