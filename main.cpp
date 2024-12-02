@@ -20,7 +20,7 @@ int main(int argc, char* argv[])
 		return ui_mode();
 
 	string method = argv[1];
-	if (ZK::methods::interpolation::methods.find(method)!=ZK::methods::interpolation::methods.end())
+	if (ZK::methods::interpolation::methods.find(method)==ZK::methods::interpolation::methods.end())
 	{
 		cerr << "Error: interpolation method unknown!\n";
 		for (auto itr : ZK::methods::interpolation::methods)
